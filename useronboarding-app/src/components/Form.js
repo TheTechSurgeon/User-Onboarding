@@ -1,13 +1,7 @@
 import React, {useState} from "react"
 import * as yup from "yup"
 
-const Form = (props)=>{
-    const [user, setUser] = useState({
-        name:"",
-        email:"",
-        password:"",
-        tos: "",
-        submitted: ""
+
         
     })
     console.log(props)
@@ -17,15 +11,50 @@ const Form = (props)=>{
         email:yup
         .string()
         .email("don't try a fake address, we will find you.")
-        .required("you've done it now, Tracing IP address"),
-        terms: yup.boolean().oneOf([true], "Need to sign your soul away.")    
+        .required("you've done it now, Tracing IP address..."),
+        terms: yup.boolean().oneOf([true], "Need to sign your soul away first."),
+        
+
 
     })  
 
 
-    return
+    
+    const Form = (props)=>{
+        const [user, setUser] = useState({
+            name:"",
+            email:"",
+            password:"",
+            tos: "",
+            submitted: ""
+        })
+         
+        return(
+        <form >
+            
+        <label htmlFor="name">
+            name
+            <input
+                type="text"
+                name="name"
+                />
 
-
-    //return
-
-}//function
+        </label>
+        <label htmlFor="email">
+            email
+            <input
+            type="text"
+            name="email"
+            />
+        </label>
+        <label htmlFor="terms">
+            Terms of Service
+            <inputt
+            type = "checkbox"
+            name = "terms"
+            checked={true}
+            />
+        </label>
+            <button>Submit</button>
+        <form/>)
+    }
